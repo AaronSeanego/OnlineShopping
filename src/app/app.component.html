@@ -1,0 +1,88 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+
+<!--
+<div *ngFor = "let item of items" style = "background-color:rgba(0,0,0,0.1);">
+  <img src = "assets/{{item.itemName}}" alt = "Items"/>
+</div>-->
+
+<!--<div *ngFor = "let item of items">
+  <p>
+    <mat-card class="items_content" style = "width: 300px; margin: 20px;">
+      <mat-card-header>
+        <mat-card-title>{{item.itemTitle}}</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="assets/{{item.itemName}}" alt="Photo of a Shiba Inu" style = "width: 200px; margin: auto 40px;">
+      <mat-card-content>
+        <p>
+          {{item.itemDescription}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+          <button mat-raised-button color="primary" (click) = "addItems(item)">Add</button>
+      </mat-card-actions>
+    </mat-card>
+  </p>
+</div>-->
+
+<!--<img src = "assets/1200px-Dell_Studio_1535.png" alt = "Items"/>-->
+
+<mat-grid-list cols="4" rowHeight="2:2.5">
+  <mat-grid-tile *ngFor = "let item of items" >
+    <mat-card class="items_content" style = "width: 300px; margin: 20px;">
+      <mat-card-header>
+        <mat-card-title>{{item.itemTitle}}</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="assets/{{item.itemName}}" alt="Photo of a Shiba Inu" style = "width: 200px; margin: auto 40px;">
+      <mat-card-content>
+        <p>
+          {{item.itemDescription}}
+        </p>
+
+        <h3>
+          R{{item.itemPrice}}
+        </h3>
+      </mat-card-content>
+      <mat-card-actions>
+          <button mat-raised-button color="primary" (click) = "addItems(item)">Add</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<aside style = "float: right;text-align: left;font-family: arial,monospace;background-color: rgba(0,0,0,0.5);width: 300px;">
+  <h3>
+    Total: R{{total}}
+  </h3>
+
+  <h3>
+    Quantity: {{quantity}}
+  </h3>
+</aside>
+
+<section style = "background-color: rgba(0,0,0,0.5);float: left;width: 1000px;">
+  
+  <mat-card class="cart_view" *ngFor = "let new_items of newItems" style = "width: 800px;margin-left: 50px;margin-top: 20px; padding: 20px;">
+    <mat-card-header>
+      <mat-card-title>{{new_items.itemTitle}}</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="assets/{{new_items.itemName}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{new_items.itemDescription}}
+      </p>
+      <h3>
+        R{{new_items.itemPrice}}
+      </h3>
+    </mat-card-content>
+  </mat-card>
+</section>
+<router-outlet></router-outlet>
