@@ -42,11 +42,22 @@ quantity: Number = 0;
 addItems(item){
   let index = this.items.indexOf(item);
   this.newItems.push(item);
-
   this.total = this.total + item.itemPrice;
-  this.quantity = this.newItems.length;
+}
 
-  if(this.newItems[index].itemName == item.itemName){
+addOtherItems(new_items){
+  var a = 0;
+  for(var i = 0; i < this.newItems.length; i++){
+    if(this.newItems.find(new_items.itemName) == true){
+      this.quantity	= a + 1;
+    }else{
+      this.newItems.push(new_items)
+    }
   }
+} 
+
+delete(new_items){
+  let deleteIndex = this.newItems.indexOf(new_items);
+  this.newItems.splice(deleteIndex,1);
 }
 }

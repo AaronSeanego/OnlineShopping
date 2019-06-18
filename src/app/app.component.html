@@ -57,24 +57,14 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-<aside style = "float: right;text-align: left;font-family: arial,monospace;background-color: rgba(0,0,0,0.5);width: 300px;">
-  <h3>
-    Total: R{{total}}
-  </h3>
-
-  <h3>
-    Quantity: {{quantity}}
-  </h3>
-</aside>
-
-<section style = "background-color: rgba(0,0,0,0.5);float: left;width: 1000px;">
+<section style = "background-color: rgba(0,0,0,0.5);">
   
-  <mat-card class="cart_view" *ngFor = "let new_items of newItems" style = "width: 800px;margin-left: 50px;margin-top: 20px; padding: 20px;">
+  <mat-card class="cart_view" *ngFor = "let new_items of newItems" style = "width: 320px;margin-left: 50px;margin-top: 20px; padding: 20px;">
     <mat-card-header>
       <mat-card-title>{{new_items.itemTitle}}</mat-card-title>
       <mat-card-subtitle>Dog Breed</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="assets/{{new_items.itemName}}" alt="Photo of a Shiba Inu">
+    <img mat-card-image src="assets/{{new_items.itemName}}" alt="Photo of a Shiba Inu" style = "width: 200px; margin: auto 40px;">
     <mat-card-content>
       <p>
         {{new_items.itemDescription}}
@@ -83,6 +73,15 @@
         R{{new_items.itemPrice}}
       </h3>
     </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-flat-button color="primary" style = "margin-right: 10px;" (click) = "addOtherItems(new_items)">Add</button>
+      <button mat-flat-button color="primary" (click) = "delete(new_items)">Delete</button>
+      <h3 style = "text-align: right;">
+          Quantity: {{quantity}}
+      </h3>
+    </mat-card-actions>
+
   </mat-card>
 </section>
 <router-outlet></router-outlet>
