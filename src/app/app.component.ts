@@ -46,14 +46,14 @@ addItems(item){
 }
 
 addOtherItems(new_items){
-  var a = 0;
-  for(var i = 0; i < this.newItems.length; i++){
-    if(this.newItems.find(new_items.itemName) == true){
-      this.quantity	= a + 1;
-    }else{
-      this.newItems.push(new_items)
-    }
+  var product = this.newItems.find(x => x.itemName == new_items.itemName);
+
+  if(product){
+    product.quantity + 1;
+  }else{
+    product.push(new_items);
   }
+  
 } 
 
 delete(new_items){
