@@ -78,10 +78,14 @@
       <button mat-flat-button color="primary" style = "margin-right: 10px;" (click) = "addOtherItems(new_items)">Add</button>
       <button mat-flat-button color="primary" (click) = "delete(new_items)">Delete</button>
       <h3 style = "text-align: right;">
-          Quantity: {{quantity}}
+          Quantity: {{new_items.itemQuantity}}
       </h3>
     </mat-card-actions>
+  </mat-card>
 
+  <mat-card style = "margin-top: 20px;">
+    Total Amount: R{{amount}}
   </mat-card>
 </section>
+
 <router-outlet></router-outlet>
